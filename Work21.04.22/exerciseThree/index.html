@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let myIterable = {
+  from: 1,
+  to: 4
+};
+
+myIterable[Symbol.iterator] = function() {
+
+  return {
+    current: this.from,
+    last: this.to,
+
+    next() {
+        if(typeof myIterable.from !== 'number' || typeof myIterable.to !== 'number' || myIterable.to < myIterable.from){
+            throw new Error('Ошибка!');
+            }
+
+        if (this.current <= this.last) {
+        return { done: false, value: this.current++ };
+        }else{
+        return { done: true };
+      }
+    }
+  };
+};
+
+    </script>
+</body>
+</html>

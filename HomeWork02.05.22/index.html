@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        class Calculator {
+            constructor(numOne, numTwo){
+
+            if(typeof numOne !== 'number') throw new Error('Параметр не передан или является невалидным числом');
+            this.numOne = numOne;
+            
+            if(typeof numTwo !== 'number') throw new Error('Параметр не передан или является невалидным числом');
+            this.numTwo = numTwo;
+            }
+
+            setX(num){
+                if(typeof num !== 'number') throw new Error('Параметр не передан или является невалидным числом');
+                this.numOne = num;
+            }
+
+            setY(num){
+                if(typeof num !== 'number') throw new Error('Параметр не передан или является невалидным числом');
+                this.numTwo = num;
+            }
+
+            logSum(){
+                console.log(this.numOne + this.numTwo);
+            }
+
+            logMul(){
+                console.log(this.numOne * this.numTwo);
+            }
+
+            logSub(){
+                console.log(this.numOne - this.numTwo);
+            }
+
+            logDiv(){
+                if(this.numTwo === 0)  throw new Error('Второе число равняется нулю');
+                console.log(this.numOne /this.numTwo);
+            }
+        }
+
+         const calcTwo = new Calculator(5,7);
+
+    </script>
+
+</body>
+</html>
